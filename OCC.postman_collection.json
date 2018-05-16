@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "3443fda7-b076-4d9a-9978-84d705cc921d",
+		"name": "OCC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"description": "",
+			"item": [
+				{
+					"name": "Auth",
+					"description": "",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjM4ZjNhNi05ODViLTQxNTQtYTgxNC0zODEyOTQxZDYwMTciLCJpc3MiOiJhcHBsaWNhdGlvbkF1dGgiLCJleHAiOjE1NTgwMTQzMDAsImlhdCI6MTUyNjQ3ODMwMH0=.qyWivl4zcWM1yklvX0Jc0XNri0I0Fi3quxPx0WYtlh8=",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/login",
+									"protocol": "https",
+									"host": [
+										"ccadmin-zaja",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "X-CCAsset-Language",
+										"value": "en"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n\t\"properties\":{\n\t\t\"enabled\": true\n\t}\n\n\n}"
+								},
+								"url": {
+									"raw": "https://ccadmin-zaja.oracleoutsourcing.com//ccadmin/v1/refresh",
+									"protocol": "https",
+									"host": [
+										"ccadmin-zaja",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"",
+										"ccadmin",
+										"v1",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Sites",
+					"description": "",
+					"item": [
+						{
+							"name": "Get Sites",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/sites",
+									"protocol": "https",
+									"host": [
+										"ccadmin-zaja",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"sites"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Site",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "X-CCAsset-Language",
+										"value": "en"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n\t\"properties\":{\n\t\t\"enabled\": true\n\t}\n\n\n}"
+								},
+								"url": {
+									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/sites/200001",
+									"protocol": "https",
+									"host": [
+										"ccadmin-zaja",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"sites",
+										"200001"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a77bcdc1-2d36-4a4c-ab04-5d5a8605f79b",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "5a911ff9-b829-44bc-a0c8-141ee7a81118",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Orders",
+					"description": "",
+					"item": [
+						{
+							"name": "Get Orders",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/orders",
+									"protocol": "https",
+									"host": [
+										"ccadmin-zaja",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"description": "",
+			"item": [
+				{
+					"name": "Profiles",
+					"description": "",
+					"item": [
+						{
+							"name": "Create Profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "X-CCAsset-Language",
+										"value": "en"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n\t\"properties\":{\n\t\t\"enabled\": true\n\t}\n\n\n}"
+								},
+								"url": {
+									"raw": "https://ccadmin-zaja.oracleoutsourcing.com//ccstore/v1/profiles",
+									"protocol": "https",
+									"host": [
+										"ccadmin-zaja",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"",
+										"ccstore",
+										"v1",
+										"profiles"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsImprdSI6InR6YWphMGMwIiwieDVjIjpudWxsLCJ4NXUiOiJodHRwczovL2NjYWRtaW4temFqYS5vcmFjbGVvdXRzb3VyY2luZy5jb20vY2NhZG1pbi92MS90ZW5hbnRDZXJ0Q2hhaW4ifQ==.eyJpYXQiOjE1MjY0Nzk5ODcsImV4cCI6MTUyNjQ4MDI4Nywic3ViIjoiMjIzOGYzYTYtOTg1Yi00MTU0LWE4MTQtMzgxMjk0MWQ2MDE3IiwiYXVkIjoiYXBwbGljYXRpb25BY2Nlc3MiLCJjb20ub3JhY2xlLmF0Zy5jbG91ZC5jb21tZXJjZS5yb2xlcyI6WyJzZXR0aW5nc1JvbGUiLCJtYXJrZXRpbmdSb2xlIiwicHVibGlzaGluZ1JvbGUiLCJkYXNoYm9hcmRSb2xlIiwicmVwb3J0aW5nUm9sZSIsIm1lZGlhUm9sZSIsImNhdGFsb2dSb2xlIiwiZGVzaWduUm9sZSIsInByZXZpZXdSb2xlIiwiYWNjb3VudE1hbmFnZXJSb2xlIiwic2VhcmNoUm9sZSJdLCJvY2NzLmFkbWluLnJvbGVzIjpbInNldHRpbmdzUm9sZSIsIm1hcmtldGluZ1JvbGUiLCJwdWJsaXNoaW5nUm9sZSIsImRhc2hib2FyZFJvbGUiLCJyZXBvcnRpbmdSb2xlIiwibWVkaWFSb2xlIiwiY2F0YWxvZ1JvbGUiLCJkZXNpZ25Sb2xlIiwicHJldmlld1JvbGUiLCJhY2NvdW50TWFuYWdlclJvbGUiLCJzZWFyY2hSb2xlIl0sImlzcyI6Imh0dHBzOi8vY2NhZG1pbi16YWphLm9yYWNsZW91dHNvdXJjaW5nLmNvbS9vY2NzLWFkbWluIiwib2Njcy5hZG1pbi5sb2NhbGUiOiJlbl9VUyIsIm9jY3MuYWRtaW4udHoiOm51bGwsIm9jY3MuYWRtaW4udGVuYW50VHoiOiJBbWVyaWNhL1Nhb19QYXVsbyIsIm9jY3MuYWRtaW4ua2VlcEFsaXZlVVJMIjoiaHR0cHM6Ly9jY2FkbWluLXphamEub3JhY2xlb3V0c291cmNpbmcuY29tL2tlZXBhbGl2ZSIsIm9jY3MuYWRtaW4udG9rZW5SZWZyZXNoVVJMIjoiaHR0cHM6Ly9jY2FkbWluLXphamEub3JhY2xlb3V0c291cmNpbmcuY29tL2NjYWRtaW4vdjEvc3NvVG9rZW5zL3JlZnJlc2giLCJvY2NzLmFkbWluLnZlcnNpb24iOiIxNy42LjEiLCJvY2NzLmFkbWluLmJ1aWxkIjoiamVua2lucy1Bc3NlbWJsZV9DbG91ZF9Db21tZXJjZV9FQVJzXy0xN182UGF0Y2hlcy0yMCIsIm9jY3MuYWRtaW4uZW1haWwiOm51bGwsIm9jY3MuYWRtaW4ucHJvZmlsZUlkIjoiMjIzOGYzYTYtOTg1Yi00MTU0LWE4MTQtMzgxMjk0MWQ2MDE3Iiwib2Njcy5hZG1pbi5maXJzdE5hbWUiOm51bGwsIm9jY3MuYWRtaW4ubGFzdE5hbWUiOm51bGx9.eD3KocEvAqaIpAr2NSAJjIqHodNxzKFEea9JQmJTtk+qx/A6ZsMkja9TwFV7Fc374xsSGlgLpzo9XhJuTh04Fn053l9bMJ89cv1DHhBQIpBAg/S4vDz/GdU7dpogCUQMExpSNrBoQinFIJUmtu0guVZs4F9hCFzxbikl9AdzzVuOKfKcQpgFOnz5dpfOHeu6+s23eNawqtwXFZHFGwrh3YvjvNB9OLNNkp1kJ+HtIlVHSQSY8+7ywsoet8NL4i2PO5gozaRT1F35Fh6dbxLcfXXqSSVYGbeRAbgJlECLDn6xqU3he5B+VTXsQiwJf8B4i/S5FrLzSbtAPD82vbFdNA==",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "fe6c59ad-7161-4657-b9f9-34c6d50289e5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "febb3fc1-e75a-490a-ba87-92644ee0c176",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
