@@ -15,6 +15,19 @@
 					"item": [
 						{
 							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c713a246-b669-4324-9167-0bf0b8ecdd5f",
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable('token', jsonData.access_token);"
+										]
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -63,6 +76,19 @@
 						},
 						{
 							"name": "Refresh Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "890f405a-7297-4926-9581-7abea16e3c1b",
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable('token', jsonData.access_token);"
+										]
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [
@@ -247,6 +273,107 @@
 						}
 					],
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Products",
+					"description": "",
+					"item": [
+						{
+							"name": "Get Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/products",
+									"protocol": "https",
+									"host": [
+										"ccadmin-zaja",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"products"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Merchant",
+					"description": "",
+					"item": [
+						{
+							"name": "SAML - Enable SSO",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"enabled\": true,\r\n  \"nameIdPolicyFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\r\n  \"requireEncryptedAssertions\": true,\r\n  \"requireSignedResponse\": true,\r\n  \"signAuthnRequest\": true,\r\n  \"nameIdPolicyAllowCreate\": true\r\n}"
+								},
+								"url": {
+									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/merchant/samlSettings",
+									"protocol": "https",
+									"host": [
+										"ccadmin-zaja",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"merchant",
+										"samlSettings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SAML Settings",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"enabled\": true,\r\n  \"nameIdPolicyFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\r\n  \"requireEncryptedAssertions\": true,\r\n  \"requireSignedResponse\": true,\r\n  \"signAuthnRequest\": true,\r\n  \"nameIdPolicyAllowCreate\": true\r\n}"
+								},
+								"url": {
+									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/merchant/samlSettings",
+									"protocol": "https",
+									"host": [
+										"ccadmin-zaja",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"merchant",
+										"samlSettings"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
 			]
 		},
@@ -296,6 +423,44 @@
 						}
 					],
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Merchant",
+					"description": "",
+					"item": [
+						{
+							"name": "SAML - Get Service Provider Descriptor",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccstore/v1/merchant/samlSettings?encode=true",
+									"protocol": "https",
+									"host": [
+										"ccadmin-zaja",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"",
+										"ccstore",
+										"v1",
+										"merchant",
+										"samlSettings"
+									],
+									"query": [
+										{
+											"key": "encode",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
 			]
 		}
@@ -305,7 +470,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJSUzI1NiIsImprdSI6InR6YWphMGMwIiwieDVjIjpudWxsLCJ4NXUiOiJodHRwczovL2NjYWRtaW4temFqYS5vcmFjbGVvdXRzb3VyY2luZy5jb20vY2NhZG1pbi92MS90ZW5hbnRDZXJ0Q2hhaW4ifQ==.eyJpYXQiOjE1MjY0Nzk5ODcsImV4cCI6MTUyNjQ4MDI4Nywic3ViIjoiMjIzOGYzYTYtOTg1Yi00MTU0LWE4MTQtMzgxMjk0MWQ2MDE3IiwiYXVkIjoiYXBwbGljYXRpb25BY2Nlc3MiLCJjb20ub3JhY2xlLmF0Zy5jbG91ZC5jb21tZXJjZS5yb2xlcyI6WyJzZXR0aW5nc1JvbGUiLCJtYXJrZXRpbmdSb2xlIiwicHVibGlzaGluZ1JvbGUiLCJkYXNoYm9hcmRSb2xlIiwicmVwb3J0aW5nUm9sZSIsIm1lZGlhUm9sZSIsImNhdGFsb2dSb2xlIiwiZGVzaWduUm9sZSIsInByZXZpZXdSb2xlIiwiYWNjb3VudE1hbmFnZXJSb2xlIiwic2VhcmNoUm9sZSJdLCJvY2NzLmFkbWluLnJvbGVzIjpbInNldHRpbmdzUm9sZSIsIm1hcmtldGluZ1JvbGUiLCJwdWJsaXNoaW5nUm9sZSIsImRhc2hib2FyZFJvbGUiLCJyZXBvcnRpbmdSb2xlIiwibWVkaWFSb2xlIiwiY2F0YWxvZ1JvbGUiLCJkZXNpZ25Sb2xlIiwicHJldmlld1JvbGUiLCJhY2NvdW50TWFuYWdlclJvbGUiLCJzZWFyY2hSb2xlIl0sImlzcyI6Imh0dHBzOi8vY2NhZG1pbi16YWphLm9yYWNsZW91dHNvdXJjaW5nLmNvbS9vY2NzLWFkbWluIiwib2Njcy5hZG1pbi5sb2NhbGUiOiJlbl9VUyIsIm9jY3MuYWRtaW4udHoiOm51bGwsIm9jY3MuYWRtaW4udGVuYW50VHoiOiJBbWVyaWNhL1Nhb19QYXVsbyIsIm9jY3MuYWRtaW4ua2VlcEFsaXZlVVJMIjoiaHR0cHM6Ly9jY2FkbWluLXphamEub3JhY2xlb3V0c291cmNpbmcuY29tL2tlZXBhbGl2ZSIsIm9jY3MuYWRtaW4udG9rZW5SZWZyZXNoVVJMIjoiaHR0cHM6Ly9jY2FkbWluLXphamEub3JhY2xlb3V0c291cmNpbmcuY29tL2NjYWRtaW4vdjEvc3NvVG9rZW5zL3JlZnJlc2giLCJvY2NzLmFkbWluLnZlcnNpb24iOiIxNy42LjEiLCJvY2NzLmFkbWluLmJ1aWxkIjoiamVua2lucy1Bc3NlbWJsZV9DbG91ZF9Db21tZXJjZV9FQVJzXy0xN182UGF0Y2hlcy0yMCIsIm9jY3MuYWRtaW4uZW1haWwiOm51bGwsIm9jY3MuYWRtaW4ucHJvZmlsZUlkIjoiMjIzOGYzYTYtOTg1Yi00MTU0LWE4MTQtMzgxMjk0MWQ2MDE3Iiwib2Njcy5hZG1pbi5maXJzdE5hbWUiOm51bGwsIm9jY3MuYWRtaW4ubGFzdE5hbWUiOm51bGx9.eD3KocEvAqaIpAr2NSAJjIqHodNxzKFEea9JQmJTtk+qx/A6ZsMkja9TwFV7Fc374xsSGlgLpzo9XhJuTh04Fn053l9bMJ89cv1DHhBQIpBAg/S4vDz/GdU7dpogCUQMExpSNrBoQinFIJUmtu0guVZs4F9hCFzxbikl9AdzzVuOKfKcQpgFOnz5dpfOHeu6+s23eNawqtwXFZHFGwrh3YvjvNB9OLNNkp1kJ+HtIlVHSQSY8+7ywsoet8NL4i2PO5gozaRT1F35Fh6dbxLcfXXqSSVYGbeRAbgJlECLDn6xqU3he5B+VTXsQiwJf8B4i/S5FrLzSbtAPD82vbFdNA==",
+				"value": "{{token}}",
 				"type": "string"
 			}
 		]
@@ -330,6 +495,15 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c00f6175-adb3-421c-ab1c-e65cda6bb144",
+			"key": "token",
+			"value": "eyJhbGciOiJSUzI1NiIsImprdSI6InR6YWphMGMwIiwia2lkIjpudWxsLCJ4NWMiOm51bGwsIng1dSI6Imh0dHBzOi8vY2NhZG1pbi16YWphLm9yYWNsZW91dHNvdXJjaW5nLmNvbS9jY2FkbWluL3YxL3RlbmFudENlcnRDaGFpbiJ9.eyJpYXQiOjE1MjgyOTMzNDMsImV4cCI6MTUyODI5MzY0Mywic3ViIjoiMjIzOGYzYTYtOTg1Yi00MTU0LWE4MTQtMzgxMjk0MWQ2MDE3IiwiYXVkIjoiYXBwbGljYXRpb25BY2Nlc3MiLCJjb20ub3JhY2xlLmF0Zy5jbG91ZC5jb21tZXJjZS5yb2xlcyI6WyJzZXR0aW5nc1JvbGUiLCJtYXJrZXRpbmdSb2xlIiwicHVibGlzaGluZ1JvbGUiLCJkYXNoYm9hcmRSb2xlIiwicmVwb3J0aW5nUm9sZSIsImNhdGFsb2dSb2xlIiwiZGVzaWduUm9sZSIsIm1lZGlhUm9sZSIsInByZXZpZXdSb2xlIiwiYWNjb3VudE1hbmFnZXJSb2xlIiwic2VhcmNoUm9sZSJdLCJvY2NzLmFkbWluLnJvbGVzIjpbInNldHRpbmdzUm9sZSIsIm1hcmtldGluZ1JvbGUiLCJwdWJsaXNoaW5nUm9sZSIsImRhc2hib2FyZFJvbGUiLCJyZXBvcnRpbmdSb2xlIiwiY2F0YWxvZ1JvbGUiLCJkZXNpZ25Sb2xlIiwibWVkaWFSb2xlIiwicHJldmlld1JvbGUiLCJhY2NvdW50TWFuYWdlclJvbGUiLCJzZWFyY2hSb2xlIl0sImlzcyI6Imh0dHBzOi8vY2NhZG1pbi16YWphLm9yYWNsZW91dHNvdXJjaW5nLmNvbS9vY2NzLWFkbWluIiwib2Njcy5hZG1pbi5sb2NhbGUiOiJlbl9VUyIsIm9jY3MuYWRtaW4udHoiOm51bGwsIm9jY3MuYWRtaW4udGVuYW50VHoiOiJBbWVyaWNhL1Nhb19QYXVsbyIsIm9jY3MuYWRtaW4ua2VlcEFsaXZlVVJMIjoiaHR0cHM6Ly9jY2FkbWluLXphamEub3JhY2xlb3V0c291cmNpbmcuY29tL2tlZXBhbGl2ZSIsIm9jY3MuYWRtaW4udG9rZW5SZWZyZXNoVVJMIjoiaHR0cHM6Ly9jY2FkbWluLXphamEub3JhY2xlb3V0c291cmNpbmcuY29tL2NjYWRtaW4vdjEvc3NvVG9rZW5zL3JlZnJlc2giLCJvY2NzLmFkbWluLnZlcnNpb24iOiIxOC4xIiwib2Njcy5hZG1pbi5idWlsZCI6ImplbmtpbnMtQXNzZW1ibGVfQ2xvdWRfQ29tbWVyY2VfRUFSc18tVmVyc2lvbl9CcmFuY2gtNDE4Iiwib2Njcy5hZG1pbi5lbWFpbCI6bnVsbCwib2Njcy5hZG1pbi5wcm9maWxlSWQiOiIyMjM4ZjNhNi05ODViLTQxNTQtYTgxNC0zODEyOTQxZDYwMTciLCJvY2NzLmFnZW50Lm9ibyI6bnVsbCwib2Njcy5hZG1pbi5maXJzdE5hbWUiOm51bGwsIm9jY3MuYWRtaW4ubGFzdE5hbWUiOm51bGx9.LGmUQ2blOgozCe6NntxZVr0YYflJe7R3mC7PefmywxFkJPukS07+m0l49lou2Efss+vWQyLENiMcur8u6zsMlpV3NFNAEjqRaaTOniEKLlxaQH6lQVHbhfj5r063pPDuIHWB59KOVuxO5HYe95jm5w73WD8TN30Qzkx3Hxd2c4F5oXyHtiqP+SVdrxuQCE/MEZ/Ncekwd5DUumBo6x2KgKnkRrInCSvCJSYYS4qHzlly3vHJotuIKa8KZTIiMscMAHb6T0RY8bDgcKQXVHmmM+qGAqRU2Rs4sF09aopcUsswLQxMFkuN2DTTyHrdAke8E2qV6KjRrogH3QdMeiE5ZQ==",
+			"type": "string",
+			"description": ""
 		}
 	]
 }
