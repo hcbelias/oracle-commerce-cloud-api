@@ -410,6 +410,38 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "SAML - Get Identity Provider Settings",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"loginAttributeName\": \"uid\",\r\n  \"emailAttributeName\": \"email\",\r\n  \"encodedIdpMetadata\": \"<identity provider entity descriptor>\",\r\n  \"requiredAttributeToPropertyMap\": {\r\n    \"uid\": \"login\",\r\n    \"email\": \"email\"\r\n  },\r\n  \"optionalAttributeToPropertyMap\": {\r\n    \"fName\": \"firstName\",\r\n    \"lName\": \"lastName\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/samlIdentityProviders/default",
+									"protocol": "https",
+									"host": [
+										"ccadmin-zaja",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"samlIdentityProviders",
+										"default"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"_postman_isSubFolder": true
@@ -538,7 +570,7 @@
 	],
 	"variable": [
 		{
-			"id": "82c686c0-ad2c-4c7c-b9f5-79d3e48876c2",
+			"id": "d16d2ad1-d054-4cff-ad66-9c07ea999e77",
 			"key": "token",
 			"value": "eyJhbGciOiJSUzI1NiIsImprdSI6InR6YWphMGMwIiwia2lkIjpudWxsLCJ4NWMiOm51bGwsIng1dSI6Imh0dHBzOi8vY2NhZG1pbi16YWphLm9yYWNsZW91dHNvdXJjaW5nLmNvbS9jY2FkbWluL3YxL3RlbmFudENlcnRDaGFpbiJ9.eyJpYXQiOjE1MjgyOTMzNDMsImV4cCI6MTUyODI5MzY0Mywic3ViIjoiMjIzOGYzYTYtOTg1Yi00MTU0LWE4MTQtMzgxMjk0MWQ2MDE3IiwiYXVkIjoiYXBwbGljYXRpb25BY2Nlc3MiLCJjb20ub3JhY2xlLmF0Zy5jbG91ZC5jb21tZXJjZS5yb2xlcyI6WyJzZXR0aW5nc1JvbGUiLCJtYXJrZXRpbmdSb2xlIiwicHVibGlzaGluZ1JvbGUiLCJkYXNoYm9hcmRSb2xlIiwicmVwb3J0aW5nUm9sZSIsImNhdGFsb2dSb2xlIiwiZGVzaWduUm9sZSIsIm1lZGlhUm9sZSIsInByZXZpZXdSb2xlIiwiYWNjb3VudE1hbmFnZXJSb2xlIiwic2VhcmNoUm9sZSJdLCJvY2NzLmFkbWluLnJvbGVzIjpbInNldHRpbmdzUm9sZSIsIm1hcmtldGluZ1JvbGUiLCJwdWJsaXNoaW5nUm9sZSIsImRhc2hib2FyZFJvbGUiLCJyZXBvcnRpbmdSb2xlIiwiY2F0YWxvZ1JvbGUiLCJkZXNpZ25Sb2xlIiwibWVkaWFSb2xlIiwicHJldmlld1JvbGUiLCJhY2NvdW50TWFuYWdlclJvbGUiLCJzZWFyY2hSb2xlIl0sImlzcyI6Imh0dHBzOi8vY2NhZG1pbi16YWphLm9yYWNsZW91dHNvdXJjaW5nLmNvbS9vY2NzLWFkbWluIiwib2Njcy5hZG1pbi5sb2NhbGUiOiJlbl9VUyIsIm9jY3MuYWRtaW4udHoiOm51bGwsIm9jY3MuYWRtaW4udGVuYW50VHoiOiJBbWVyaWNhL1Nhb19QYXVsbyIsIm9jY3MuYWRtaW4ua2VlcEFsaXZlVVJMIjoiaHR0cHM6Ly9jY2FkbWluLXphamEub3JhY2xlb3V0c291cmNpbmcuY29tL2tlZXBhbGl2ZSIsIm9jY3MuYWRtaW4udG9rZW5SZWZyZXNoVVJMIjoiaHR0cHM6Ly9jY2FkbWluLXphamEub3JhY2xlb3V0c291cmNpbmcuY29tL2NjYWRtaW4vdjEvc3NvVG9rZW5zL3JlZnJlc2giLCJvY2NzLmFkbWluLnZlcnNpb24iOiIxOC4xIiwib2Njcy5hZG1pbi5idWlsZCI6ImplbmtpbnMtQXNzZW1ibGVfQ2xvdWRfQ29tbWVyY2VfRUFSc18tVmVyc2lvbl9CcmFuY2gtNDE4Iiwib2Njcy5hZG1pbi5lbWFpbCI6bnVsbCwib2Njcy5hZG1pbi5wcm9maWxlSWQiOiIyMjM4ZjNhNi05ODViLTQxNTQtYTgxNC0zODEyOTQxZDYwMTciLCJvY2NzLmFnZW50Lm9ibyI6bnVsbCwib2Njcy5hZG1pbi5maXJzdE5hbWUiOm51bGwsIm9jY3MuYWRtaW4ubGFzdE5hbWUiOm51bGx9.LGmUQ2blOgozCe6NntxZVr0YYflJe7R3mC7PefmywxFkJPukS07+m0l49lou2Efss+vWQyLENiMcur8u6zsMlpV3NFNAEjqRaaTOniEKLlxaQH6lQVHbhfj5r063pPDuIHWB59KOVuxO5HYe95jm5w73WD8TN30Qzkx3Hxd2c4F5oXyHtiqP+SVdrxuQCE/MEZ/Ncekwd5DUumBo6x2KgKnkRrInCSvCJSYYS4qHzlly3vHJotuIKa8KZTIiMscMAHb6T0RY8bDgcKQXVHmmM+qGAqRU2Rs4sF09aopcUsswLQxMFkuN2DTTyHrdAke8E2qV6KjRrogH3QdMeiE5ZQ==",
 			"type": "string",
