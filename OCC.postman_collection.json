@@ -1,19 +1,20 @@
 {
 	"info": {
-		"_postman_id": "3443fda7-b076-4d9a-9978-84d705cc921d",
+		"_postman_id": "2ad06011-bba3-4d60-b9b2-148907295372",
 		"name": "OCC",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
+			"_postman_id": "59b25ec2-1d86-4b1e-addd-7340aad11721",
 			"name": "Admin",
-			"description": "",
 			"item": [
 				{
+					"_postman_id": "e9850d7c-b323-4aa5-ade5-3ad6a7a9dbfc",
 					"name": "Auth",
-					"description": "",
 					"item": [
 						{
+							"_postman_id": "bccf9bff-493b-41d5-b8e3-cdfd63870fe3",
 							"name": "Login",
 							"event": [
 								{
@@ -34,7 +35,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjM4ZjNhNi05ODViLTQxNTQtYTgxNC0zODEyOTQxZDYwMTciLCJpc3MiOiJhcHBsaWNhdGlvbkF1dGgiLCJleHAiOjE1NTgwMTQzMDAsImlhdCI6MTUyNjQ3ODMwMH0=.qyWivl4zcWM1yklvX0Jc0XNri0I0Fi3quxPx0WYtlh8=",
+											"value": "{{application_token}}",
 											"type": "string"
 										}
 									]
@@ -52,16 +53,15 @@
 										{
 											"key": "grant_type",
 											"value": "client_credentials",
-											"description": "",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/login",
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/login",
 									"protocol": "https",
 									"host": [
-										"ccadmin-zaja",
+										"{{server}}",
 										"oracleoutsourcing",
 										"com"
 									],
@@ -75,6 +75,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "9115d9ab-30b8-4a27-8068-df4014e9ab59",
 							"name": "Refresh Login",
 							"event": [
 								{
@@ -106,15 +107,14 @@
 									"raw": "{ \n\t\"properties\":{\n\t\t\"enabled\": true\n\t}\n\n\n}"
 								},
 								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com//ccadmin/v1/refresh",
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/refresh",
 									"protocol": "https",
 									"host": [
-										"ccadmin-zaja",
+										"{{server}}",
 										"oracleoutsourcing",
 										"com"
 									],
 									"path": [
-										"",
 										"ccadmin",
 										"v1",
 										"refresh"
@@ -127,10 +127,236 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"name": "Sites",
-					"description": "",
+					"_postman_id": "fa70a904-661e-4fb3-87f8-8a3dcda1e01e",
+					"name": "Merchant",
 					"item": [
 						{
+							"_postman_id": "23d392be-8d3a-44b1-86c1-fb610b6842aa",
+							"name": "SAML - Enable SSO",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"enabled\": true,\r\n  \"nameIdPolicyFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\r\n  \"requireEncryptedAssertions\": true,\r\n  \"requireSignedResponse\": true,\r\n  \"signAuthnRequest\": true,\r\n  \"nameIdPolicyAllowCreate\": true\r\n}"
+								},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/merchant/samlSettings",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"merchant",
+										"samlSettings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"_postman_id": "fbe22a42-7fe7-4d70-a488-9189bd816aba",
+							"name": "SAML Settings",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"enabled\": true,\r\n  \"nameIdPolicyFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\r\n  \"requireEncryptedAssertions\": true,\r\n  \"requireSignedResponse\": true,\r\n  \"signAuthnRequest\": true,\r\n  \"nameIdPolicyAllowCreate\": true\r\n}"
+								},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/merchant/samlSettings",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"merchant",
+										"samlSettings"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"_postman_id": "fa0881b7-4879-4f72-a7e7-e73cfbb47c78",
+					"name": "Orders",
+					"item": [
+						{
+							"_postman_id": "79f1638d-f7e0-491c-84f4-da6630c6b9ff",
+							"name": "Get Orders",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/orders",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"_postman_id": "a7530acd-2816-4ae1-b7aa-0e485d19df26",
+					"name": "Products",
+					"item": [
+						{
+							"_postman_id": "0b224577-ec2e-4380-9415-2a1d0184cbee",
+							"name": "Get Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/products",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"products"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"_postman_id": "933ca1dc-d48d-4818-a7b5-912596bce44f",
+					"name": "SAML Providers",
+					"item": [
+						{
+							"_postman_id": "e321c971-08c7-45d3-aa4b-002e81349c13",
+							"name": "SAML - Upload Identity Provider Descriptor",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"loginAttributeName\": \"uid\",\r\n  \"emailAttributeName\": \"email\",\r\n  \"encodedIdpMetadata\": \"<identity provider entity descriptor>\",\r\n  \"requiredAttributeToPropertyMap\": {\r\n    \"uid\": \"login\",\r\n    \"email\": \"email\"\r\n  },\r\n  \"optionalAttributeToPropertyMap\": {\r\n    \"fName\": \"firstName\",\r\n    \"lName\": \"lastName\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/samlIdentityProviders/default",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"samlIdentityProviders",
+										"default"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"_postman_id": "36101857-d823-4e22-a4a6-ee7712adb596",
+							"name": "SAML - Get Identity Provider Settings",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"loginAttributeName\": \"uid\",\r\n  \"emailAttributeName\": \"email\",\r\n  \"encodedIdpMetadata\": \"<identity provider entity descriptor>\",\r\n  \"requiredAttributeToPropertyMap\": {\r\n    \"uid\": \"login\",\r\n    \"email\": \"email\"\r\n  },\r\n  \"optionalAttributeToPropertyMap\": {\r\n    \"fName\": \"firstName\",\r\n    \"lName\": \"lastName\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/samlIdentityProviders/default",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"samlIdentityProviders",
+										"default"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"_postman_id": "a9ef9560-c1fe-47ae-a5bd-7f231e113936",
+					"name": "Sites",
+					"item": [
+						{
+							"_postman_id": "9bd4a3be-7555-44eb-bf83-14fd0f2acde3",
 							"name": "Get Sites",
 							"request": {
 								"method": "GET",
@@ -146,16 +372,15 @@
 										{
 											"key": "grant_type",
 											"value": "client_credentials",
-											"description": "",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/sites",
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/sites",
 									"protocol": "https",
 									"host": [
-										"ccadmin-zaja",
+										"{{server}}",
 										"oracleoutsourcing",
 										"com"
 									],
@@ -169,6 +394,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "25f457ac-860f-46cb-94d8-b07058bee9dd",
 							"name": "Update Site",
 							"request": {
 								"method": "PUT",
@@ -187,10 +413,10 @@
 									"raw": "{ \n\t\"properties\":{\n\t\t\"enabled\": true,\n\t\t\"allowedOriginMethods\": {\n            \"http://www.myIdentityProvider.com\": \"POST\"\n         }\n\t}\n\n\n}"
 								},
 								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/sites/200001",
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/sites/200001",
 									"protocol": "https",
 									"host": [
-										"ccadmin-zaja",
+										"{{server}}",
 										"oracleoutsourcing",
 										"com"
 									],
@@ -230,214 +456,88 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"name": "Orders",
-					"description": "",
+					"_postman_id": "c2039fb0-11db-4a6b-a077-4eac95e7668d",
+					"name": "Themes",
 					"item": [
 						{
-							"name": "Get Orders",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/x-www-form-urlencoded"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "grant_type",
-											"value": "client_credentials",
-											"description": "",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/orders",
-									"protocol": "https",
-									"host": [
-										"ccadmin-zaja",
-										"oracleoutsourcing",
-										"com"
-									],
-									"path": [
-										"ccadmin",
-										"v1",
-										"orders"
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "Products",
-					"description": "",
-					"item": [
-						{
-							"name": "Get Products",
+							"_postman_id": "7a9a5f7e-677f-4c0d-a061-866b9be84cba",
+							"name": "Get Active Theme",
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
-								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/products",
-									"protocol": "https",
-									"host": [
-										"ccadmin-zaja",
-										"oracleoutsourcing",
-										"com"
-									],
-									"path": [
-										"ccadmin",
-										"v1",
-										"products"
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "Merchant",
-					"description": "",
-					"item": [
-						{
-							"name": "SAML - Enable SSO",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"enabled\": true,\r\n  \"nameIdPolicyFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\r\n  \"requireEncryptedAssertions\": true,\r\n  \"requireSignedResponse\": true,\r\n  \"signAuthnRequest\": true,\r\n  \"nameIdPolicyAllowCreate\": true\r\n}"
+									"raw": ""
 								},
 								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/merchant/samlSettings",
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/themes/active",
 									"protocol": "https",
 									"host": [
-										"ccadmin-zaja",
+										"{{server}}",
 										"oracleoutsourcing",
 										"com"
 									],
 									"path": [
 										"ccadmin",
 										"v1",
-										"merchant",
-										"samlSettings"
+										"themes",
+										"active"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "SAML Settings",
+							"_postman_id": "16dd99e3-3fd7-46b0-8d68-9ccfe1ec70d0",
+							"name": "Set Active Theme",
 							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
+								"method": "POST",
+								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"enabled\": true,\r\n  \"nameIdPolicyFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\r\n  \"requireEncryptedAssertions\": true,\r\n  \"requireSignedResponse\": true,\r\n  \"signAuthnRequest\": true,\r\n  \"nameIdPolicyAllowCreate\": true\r\n}"
+									"raw": ""
 								},
 								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/merchant/samlSettings",
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/themes/300001/active",
 									"protocol": "https",
 									"host": [
-										"ccadmin-zaja",
+										"{{server}}",
 										"oracleoutsourcing",
 										"com"
 									],
 									"path": [
 										"ccadmin",
 										"v1",
-										"merchant",
-										"samlSettings"
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "SAML Providers",
-					"description": "",
-					"item": [
-						{
-							"name": "SAML - Upload Identity Provider Descriptor",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"loginAttributeName\": \"uid\",\r\n  \"emailAttributeName\": \"email\",\r\n  \"encodedIdpMetadata\": \"<identity provider entity descriptor>\",\r\n  \"requiredAttributeToPropertyMap\": {\r\n    \"uid\": \"login\",\r\n    \"email\": \"email\"\r\n  },\r\n  \"optionalAttributeToPropertyMap\": {\r\n    \"fName\": \"firstName\",\r\n    \"lName\": \"lastName\"\r\n  }\r\n}"
-								},
-								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/samlIdentityProviders/default",
-									"protocol": "https",
-									"host": [
-										"ccadmin-zaja",
-										"oracleoutsourcing",
-										"com"
-									],
-									"path": [
-										"ccadmin",
-										"v1",
-										"samlIdentityProviders",
-										"default"
+										"themes",
+										"300001",
+										"active"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "SAML - Get Identity Provider Settings",
+							"_postman_id": "fbb35ca9-a74c-4a9c-8f49-8adea99babe2",
+							"name": "Get Themes",
 							"request": {
 								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
+								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"loginAttributeName\": \"uid\",\r\n  \"emailAttributeName\": \"email\",\r\n  \"encodedIdpMetadata\": \"<identity provider entity descriptor>\",\r\n  \"requiredAttributeToPropertyMap\": {\r\n    \"uid\": \"login\",\r\n    \"email\": \"email\"\r\n  },\r\n  \"optionalAttributeToPropertyMap\": {\r\n    \"fName\": \"firstName\",\r\n    \"lName\": \"lastName\"\r\n  }\r\n}"
+									"raw": ""
 								},
 								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccadmin/v1/samlIdentityProviders/default",
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/themes",
 									"protocol": "https",
 									"host": [
-										"ccadmin-zaja",
+										"{{server}}",
 										"oracleoutsourcing",
 										"com"
 									],
 									"path": [
 										"ccadmin",
 										"v1",
-										"samlIdentityProviders",
-										"default"
+										"themes"
 									]
 								}
 							},
@@ -449,14 +549,15 @@
 			]
 		},
 		{
+			"_postman_id": "933752a1-f336-4483-9881-a28782b6e534",
 			"name": "Store",
-			"description": "",
 			"item": [
 				{
+					"_postman_id": "aefc81e1-171c-4262-bdc7-3db7d1df9756",
 					"name": "Profiles",
-					"description": "",
 					"item": [
 						{
+							"_postman_id": "33b3f445-c211-4f32-8404-3a181bcdaa40",
 							"name": "Create Profile",
 							"request": {
 								"method": "POST",
@@ -475,15 +576,14 @@
 									"raw": "{ \n\t\"properties\":{\n\t\t\"enabled\": true\n\t}\n\n\n}"
 								},
 								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com//ccstore/v1/profiles",
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccstore/v1/profiles",
 									"protocol": "https",
 									"host": [
-										"ccadmin-zaja",
+										"{{server}}",
 										"oracleoutsourcing",
 										"com"
 									],
 									"path": [
-										"",
 										"ccstore",
 										"v1",
 										"profiles"
@@ -496,25 +596,28 @@
 					"_postman_isSubFolder": true
 				},
 				{
+					"_postman_id": "9e2444b2-af32-470c-9ab7-4f0e9c76cc66",
 					"name": "Merchant",
-					"description": "",
 					"item": [
 						{
+							"_postman_id": "1f462315-b532-4c50-97c5-4cfc7da1a5a8",
 							"name": "SAML - Get Service Provider Descriptor",
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
-									"raw": "https://ccadmin-zaja.oracleoutsourcing.com/ccstore/v1/merchant/samlSettings?encode=true",
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccstore/v1/merchant/samlSettings?encode=true",
 									"protocol": "https",
 									"host": [
-										"ccadmin-zaja",
+										"{{server}}",
 										"oracleoutsourcing",
 										"com"
 									],
 									"path": [
-										"",
 										"ccstore",
 										"v1",
 										"merchant",
@@ -570,11 +673,10 @@
 	],
 	"variable": [
 		{
-			"id": "d16d2ad1-d054-4cff-ad66-9c07ea999e77",
+			"id": "e4943ecb-0036-4140-b39f-2c1752db8320",
 			"key": "token",
 			"value": "eyJhbGciOiJSUzI1NiIsImprdSI6InR6YWphMGMwIiwia2lkIjpudWxsLCJ4NWMiOm51bGwsIng1dSI6Imh0dHBzOi8vY2NhZG1pbi16YWphLm9yYWNsZW91dHNvdXJjaW5nLmNvbS9jY2FkbWluL3YxL3RlbmFudENlcnRDaGFpbiJ9.eyJpYXQiOjE1MjgyOTMzNDMsImV4cCI6MTUyODI5MzY0Mywic3ViIjoiMjIzOGYzYTYtOTg1Yi00MTU0LWE4MTQtMzgxMjk0MWQ2MDE3IiwiYXVkIjoiYXBwbGljYXRpb25BY2Nlc3MiLCJjb20ub3JhY2xlLmF0Zy5jbG91ZC5jb21tZXJjZS5yb2xlcyI6WyJzZXR0aW5nc1JvbGUiLCJtYXJrZXRpbmdSb2xlIiwicHVibGlzaGluZ1JvbGUiLCJkYXNoYm9hcmRSb2xlIiwicmVwb3J0aW5nUm9sZSIsImNhdGFsb2dSb2xlIiwiZGVzaWduUm9sZSIsIm1lZGlhUm9sZSIsInByZXZpZXdSb2xlIiwiYWNjb3VudE1hbmFnZXJSb2xlIiwic2VhcmNoUm9sZSJdLCJvY2NzLmFkbWluLnJvbGVzIjpbInNldHRpbmdzUm9sZSIsIm1hcmtldGluZ1JvbGUiLCJwdWJsaXNoaW5nUm9sZSIsImRhc2hib2FyZFJvbGUiLCJyZXBvcnRpbmdSb2xlIiwiY2F0YWxvZ1JvbGUiLCJkZXNpZ25Sb2xlIiwibWVkaWFSb2xlIiwicHJldmlld1JvbGUiLCJhY2NvdW50TWFuYWdlclJvbGUiLCJzZWFyY2hSb2xlIl0sImlzcyI6Imh0dHBzOi8vY2NhZG1pbi16YWphLm9yYWNsZW91dHNvdXJjaW5nLmNvbS9vY2NzLWFkbWluIiwib2Njcy5hZG1pbi5sb2NhbGUiOiJlbl9VUyIsIm9jY3MuYWRtaW4udHoiOm51bGwsIm9jY3MuYWRtaW4udGVuYW50VHoiOiJBbWVyaWNhL1Nhb19QYXVsbyIsIm9jY3MuYWRtaW4ua2VlcEFsaXZlVVJMIjoiaHR0cHM6Ly9jY2FkbWluLXphamEub3JhY2xlb3V0c291cmNpbmcuY29tL2tlZXBhbGl2ZSIsIm9jY3MuYWRtaW4udG9rZW5SZWZyZXNoVVJMIjoiaHR0cHM6Ly9jY2FkbWluLXphamEub3JhY2xlb3V0c291cmNpbmcuY29tL2NjYWRtaW4vdjEvc3NvVG9rZW5zL3JlZnJlc2giLCJvY2NzLmFkbWluLnZlcnNpb24iOiIxOC4xIiwib2Njcy5hZG1pbi5idWlsZCI6ImplbmtpbnMtQXNzZW1ibGVfQ2xvdWRfQ29tbWVyY2VfRUFSc18tVmVyc2lvbl9CcmFuY2gtNDE4Iiwib2Njcy5hZG1pbi5lbWFpbCI6bnVsbCwib2Njcy5hZG1pbi5wcm9maWxlSWQiOiIyMjM4ZjNhNi05ODViLTQxNTQtYTgxNC0zODEyOTQxZDYwMTciLCJvY2NzLmFnZW50Lm9ibyI6bnVsbCwib2Njcy5hZG1pbi5maXJzdE5hbWUiOm51bGwsIm9jY3MuYWRtaW4ubGFzdE5hbWUiOm51bGx9.LGmUQ2blOgozCe6NntxZVr0YYflJe7R3mC7PefmywxFkJPukS07+m0l49lou2Efss+vWQyLENiMcur8u6zsMlpV3NFNAEjqRaaTOniEKLlxaQH6lQVHbhfj5r063pPDuIHWB59KOVuxO5HYe95jm5w73WD8TN30Qzkx3Hxd2c4F5oXyHtiqP+SVdrxuQCE/MEZ/Ncekwd5DUumBo6x2KgKnkRrInCSvCJSYYS4qHzlly3vHJotuIKa8KZTIiMscMAHb6T0RY8bDgcKQXVHmmM+qGAqRU2Rs4sF09aopcUsswLQxMFkuN2DTTyHrdAke8E2qV6KjRrogH3QdMeiE5ZQ==",
-			"type": "string",
-			"description": ""
+			"type": "string"
 		}
 	]
 }
