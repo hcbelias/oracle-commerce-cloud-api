@@ -1,20 +1,17 @@
 {
 	"info": {
-		"_postman_id": "2ad06011-bba3-4d60-b9b2-148907295372",
+		"_postman_id": "a2406489-37ee-46c1-91eb-0f657deb7abe",
 		"name": "OCC",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"_postman_id": "59b25ec2-1d86-4b1e-addd-7340aad11721",
 			"name": "Admin",
 			"item": [
 				{
-					"_postman_id": "e9850d7c-b323-4aa5-ade5-3ad6a7a9dbfc",
 					"name": "Auth",
 					"item": [
 						{
-							"_postman_id": "bccf9bff-493b-41d5-b8e3-cdfd63870fe3",
 							"name": "Login",
 							"event": [
 								{
@@ -75,7 +72,6 @@
 							"response": []
 						},
 						{
-							"_postman_id": "9115d9ab-30b8-4a27-8068-df4014e9ab59",
 							"name": "Refresh Login",
 							"event": [
 								{
@@ -127,11 +123,9 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"_postman_id": "fa70a904-661e-4fb3-87f8-8a3dcda1e01e",
 					"name": "Merchant",
 					"item": [
 						{
-							"_postman_id": "23d392be-8d3a-44b1-86c1-fb610b6842aa",
 							"name": "SAML - Enable SSO",
 							"request": {
 								"method": "PUT",
@@ -164,7 +158,6 @@
 							"response": []
 						},
 						{
-							"_postman_id": "fbe22a42-7fe7-4d70-a488-9189bd816aba",
 							"name": "SAML Settings",
 							"request": {
 								"method": "GET",
@@ -200,11 +193,9 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"_postman_id": "fa0881b7-4879-4f72-a7e7-e73cfbb47c78",
 					"name": "Orders",
 					"item": [
 						{
-							"_postman_id": "79f1638d-f7e0-491c-84f4-da6630c6b9ff",
 							"name": "Get Orders",
 							"request": {
 								"method": "GET",
@@ -245,11 +236,9 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"_postman_id": "a7530acd-2816-4ae1-b7aa-0e485d19df26",
 					"name": "Products",
 					"item": [
 						{
-							"_postman_id": "0b224577-ec2e-4380-9415-2a1d0184cbee",
 							"name": "Get Products",
 							"request": {
 								"method": "GET",
@@ -279,11 +268,9 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"_postman_id": "933ca1dc-d48d-4818-a7b5-912596bce44f",
 					"name": "SAML Providers",
 					"item": [
 						{
-							"_postman_id": "e321c971-08c7-45d3-aa4b-002e81349c13",
 							"name": "SAML - Upload Identity Provider Descriptor",
 							"request": {
 								"method": "PUT",
@@ -316,7 +303,6 @@
 							"response": []
 						},
 						{
-							"_postman_id": "36101857-d823-4e22-a4a6-ee7712adb596",
 							"name": "SAML - Get Identity Provider Settings",
 							"request": {
 								"method": "GET",
@@ -352,32 +338,24 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"_postman_id": "a9ef9560-c1fe-47ae-a5bd-7f231e113936",
 					"name": "Sites",
 					"item": [
 						{
-							"_postman_id": "9bd4a3be-7555-44eb-bf83-14fd0f2acde3",
 							"name": "Get Sites",
 							"request": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/x-www-form-urlencoded"
+										"value": "application/json"
 									}
 								],
 								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "grant_type",
-											"value": "client_credentials",
-											"type": "text"
-										}
-									]
+									"mode": "raw",
+									"raw": "{\r\n    \"properties\":{\r\n    \t\"id\": \"800005\",\r\n        \"name\":\"Hope Resort\"\r\n        \"siteTypes\":[\r\n            \"b2bCommerce\"\r\n        ]\r\n    }\r\n}"
 								},
 								"url": {
-									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/sites",
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/sites/",
 									"protocol": "https",
 									"host": [
 										"{{server}}",
@@ -387,14 +365,14 @@
 									"path": [
 										"ccadmin",
 										"v1",
-										"sites"
+										"sites",
+										""
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"_postman_id": "25f457ac-860f-46cb-94d8-b07058bee9dd",
 							"name": "Update Site",
 							"request": {
 								"method": "PUT",
@@ -429,6 +407,37 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Create Site",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"properties\":{\r\n    \t\"id\": \"800005\",\r\n        \"name\":\"Hope Resort\"\r\n        \"siteTypes\":[\r\n            \"b2bCommerce\"\r\n        ]\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/sites",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"sites"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"event": [
@@ -456,11 +465,9 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"_postman_id": "c2039fb0-11db-4a6b-a077-4eac95e7668d",
 					"name": "Themes",
 					"item": [
 						{
-							"_postman_id": "7a9a5f7e-677f-4c0d-a061-866b9be84cba",
 							"name": "Get Active Theme",
 							"request": {
 								"method": "GET",
@@ -488,7 +495,6 @@
 							"response": []
 						},
 						{
-							"_postman_id": "16dd99e3-3fd7-46b0-8d68-9ccfe1ec70d0",
 							"name": "Set Active Theme",
 							"request": {
 								"method": "POST",
@@ -517,7 +523,6 @@
 							"response": []
 						},
 						{
-							"_postman_id": "fbb35ca9-a74c-4a9c-8f49-8adea99babe2",
 							"name": "Get Themes",
 							"request": {
 								"method": "GET",
@@ -545,19 +550,266 @@
 						}
 					],
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "SiteSettings",
+					"item": [
+						{
+							"name": "Get SiteSettings",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"properties\":{\r\n    \t\"id\": \"800005\",\r\n        \"name\":\"Hope Resort\"\r\n        \"siteTypes\":[\r\n            \"b2bCommerce\"\r\n        ]\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/sitesettings",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"sitesettings"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "WidgetDescriptors",
+					"item": [
+						{
+							"name": "Get Widget Instances",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/widgetDescriptors/instances",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"widgetDescriptors",
+										"instances"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get WidgetDescriptors",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": " x-ccasset-language",
+										"value": "pt_BR"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/widgetDescriptors/resortb2cprofile_v1",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"widgetDescriptors",
+										"resortb2cprofile_v1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Info WidgetDescriptors ",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/widgetDescriptors/resortb2cprofile_v1",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"widgetDescriptors",
+										"resortb2cprofile_v1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Widget Instances Locale",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/widgetDescriptors/ResortCartShippingDetailsB2C_v1/locale/en",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"widgetDescriptors",
+										"ResortCartShippingDetailsB2C_v1",
+										"locale",
+										"en"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Locales",
+					"item": [
+						{
+							"name": "Get Locales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/locales",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"locales"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "ShippingMethods",
+					"item": [
+						{
+							"name": "list shipping methods",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": " x-ccasset-language",
+										"value": "en-US"
+									},
+									{
+										"key": "accept-language",
+										"value": "en_US"
+									},
+									{
+										"key": "c-ccsite",
+										"value": "800005",
+										"disabled": true
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/widgetDescriptors/resortB2cCheckoutAddress_v1/locale/en-US",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"widgetDescriptors",
+										"resortB2cCheckoutAddress_v1",
+										"locale",
+										"en-US"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Logs",
+					"item": [
+						{
+							"name": "GetExtensionServerLogs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccadmin/v1/logging",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccadmin",
+										"v1",
+										"logging"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
 			]
 		},
 		{
-			"_postman_id": "933752a1-f336-4483-9881-a28782b6e534",
 			"name": "Store",
 			"item": [
 				{
-					"_postman_id": "aefc81e1-171c-4262-bdc7-3db7d1df9756",
 					"name": "Profiles",
 					"item": [
 						{
-							"_postman_id": "33b3f445-c211-4f32-8404-3a181bcdaa40",
 							"name": "Create Profile",
 							"request": {
 								"method": "POST",
@@ -591,16 +843,38 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Get Current Profile",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccstore/v1/profiles/current",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccstore",
+										"v1",
+										"profiles",
+										"current"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"_postman_isSubFolder": true
 				},
 				{
-					"_postman_id": "9e2444b2-af32-470c-9ab7-4f0e9c76cc66",
 					"name": "Merchant",
 					"item": [
 						{
-							"_postman_id": "1f462315-b532-4c50-97c5-4cfc7da1a5a8",
 							"name": "SAML - Get Service Provider Descriptor",
 							"request": {
 								"method": "GET",
@@ -628,6 +902,35 @@
 											"key": "encode",
 											"value": "true"
 										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Locations",
+					"item": [
+						{
+							"name": "List Locations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{{server}}.oracleoutsourcing.com/ccstore/v1/locations",
+									"protocol": "https",
+									"host": [
+										"{{server}}",
+										"oracleoutsourcing",
+										"com"
+									],
+									"path": [
+										"ccstore",
+										"v1",
+										"locations"
 									]
 								}
 							},
